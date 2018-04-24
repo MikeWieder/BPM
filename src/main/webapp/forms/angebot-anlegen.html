@@ -1,0 +1,50 @@
+<form name="AngebotAnlegen">
+  <div class="form-group">
+    <label for="kundennummer">Kundennummer</label>
+    <input class="form-control"
+           cam-variable-type="String"
+           cam-variable-name="kundennummer"
+           name="kundennummer" />
+  </div>
+  <div class="form-group">
+    <label for="preis">Preis</label>
+    <input class="form-control"
+           cam-variable-type="Double"
+           cam-variable-name="preis"
+           name ="preis" />
+  </div>
+  <div class="form-group">
+  <label for="konfiguration">Fahrzeugkonfiguration</label>
+  <input type="file" id="file-input" />
+	<h3>Fahrzeugkonfiguration:</h3>
+	<pre id="file-content"></pre>
+  </div> 
+
+
+  <script cam-script type="text/form-script">
+  
+  function readSingleFile(e) {
+  var file = e.target.files[0];
+  if (!file) {
+    return;
+  }
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var contents = e.target.result;
+    displayContents(contents);
+  };
+  reader.readAsText(file);
+}
+
+function displayContents(contents) {
+  var element = document.getElementById('file-content');
+  element.textContent = contents;
+}
+
+document.getElementById('file-input')
+  .addEventListener('change', readSingleFile, false);
+  
+  
+  </script>
+
+</form>
