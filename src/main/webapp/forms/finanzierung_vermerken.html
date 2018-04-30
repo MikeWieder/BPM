@@ -1,0 +1,47 @@
+<form name="FinanzierungVermerken">
+
+<h1 class="form-group">Best&auml;tigtes Angebot:</h1>
+<p>Bitte vermerken Sie die Zahlungsart (Finanzierung oder Barzahlung).</p>
+
+<table style="height: 42px;" width="375">
+<tbody>
+<tr>
+<td style="width: 179px;"><strong><label for="kundennummer">Kundennummer:</label></strong></td>
+<td style="width: 180px;"><input cam-variable-name="kundennummer"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<tr>
+<td style="width: 179px;"><label for="preis"><strong>Preis:</strong></label></td>
+<td style="width: 180px;">
+	<input cam-variable-name="preis"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<td style="width: 179px;"><label for="konfiguration"><strong>Fahrzeugkonfiguration:</strong></label></td>
+<td style="width: 180px;">
+	<input cam-variable-name="konfiguration"
+		readonly="true">&nbsp;
+</td>
+</tbody>
+</table>
+
+<p>&nbsp;</p>
+<div class="form-group">&nbsp;</div>
+<div class="form-group"><strong>Gew&uuml;nschte Zahlart des Kunden:&nbsp;</strong>
+<select cam-variable-name="zahlungsart"
+        cam-variable-type="String">
+<option value = "barzahlung">Barzahlung</option>
+<option value = "finanzierung">Finanzierung</option>
+</select>
+</div>
+
+
+<script cam-script type="text/form-script">
+
+
+
+
+</script>
+
+</form>

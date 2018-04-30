@@ -1,0 +1,44 @@
+<form name="KaufvertragErstellen" >
+
+<h1 class="form-group">Best&auml;tigtes Angebot inklusive Zahlungsart</h1>
+
+<table style="height: 42px;" width="375">
+<tbody>
+<tr>
+<td style="width: 179px;"><strong><label for="kundennummer">Kundennummer:</label></strong></td>
+<td style="width: 180px;"><input cam-variable-name="kundennummer"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<tr>
+<td style="width: 179px;"><label for="preis"><strong>Preis:</strong></label></td>
+<td style="width: 180px;">
+	<input cam-variable-name="preis"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<tr>
+<td style="width: 179px;"><label for="konfiguration"><strong>Fahrzeugkonfiguration:</strong></label></td>
+<td style="width: 180px;">
+	<input cam-variable-name="konfiguration"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<tr>
+<td style="width: 179px;"><label for="zahlungsart"><strong>Zahlungsart:</strong></label></td>
+<td id = "td_field_zahlungsart" style="width: 180px;">
+	<input {{ zahlungsArt }} readonly="true">&nbsp;
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<script cam-script type="text/form-script">
+
+
+
+
+</script>
+
+</form>

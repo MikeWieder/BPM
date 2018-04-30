@@ -1,0 +1,14 @@
+<form name="FinanzierungsangebotAbstimmen" >
+
+<h1 class="form-group">Finanzierungsangebot abstimmen</h1>
+<p>Bitte stimmen Sie das nachstehende Angebot mit dem Kunden ab.</p>
+<p>Im Falle einer Best&auml;tigung durch den Kunden w&auml;hlen Sie im Dropdown "Best&auml;tigt".<br />Im Falle einer Absage durch den Kunden w&auml;hlen Sie "Abgelehnt"; in diesem Fall wird der Prozess wird anschlie&szlig;end beendet.</p>
+
+
+
+<script cam-script type="text/form-script">
+
+
+</script>
+
+</form>

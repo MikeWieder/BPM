@@ -1,0 +1,65 @@
+<form name="AngebotAnlegen">
+
+<h1 class="form-group">Neues Angebot anlegen</h1>
+<div class="form-group">&nbsp;</div>
+
+<div class="form-group">
+<strong><label for="kundennummer">Kundennummer</label></strong>
+<label for="kundennummer">&nbsp;</label><strong>&nbsp;&nbsp;</strong>
+<input class="form-control"
+	cam-variable-type="String"
+    cam-variable-name="kundennummer"
+    name="kundennummer" />
+</div>
+
+<div class="form-group"><label for="preis"><strong>Preis</strong>&nbsp;<strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</strong></label>
+<input class="form-control" 
+	cam-variable-type="Double"
+    cam-variable-name="preis"
+    name ="preis" />
+</div>
+<div class="form-group">&nbsp;</div>
+<div class="form-group">&nbsp;</div>
+
+<div class="form-group"><label for="konfiguration">Fahrzeugkonfiguration</label> 
+<input id="file-input" type="file" />
+<h3>Fahrzeugkonfiguration:</h3>
+<pre id="file-content">&nbsp; 
+	cam-variable-type="String"
+    cam-variable-name="konfiguration"</pre>
+</div>
+
+
+
+<script cam-script type="text/form-script">
+  
+  function readSingleFile(e) {
+  var file = e.target.files[0];
+  if (!file) {
+    return;
+  }
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var contents = e.target.result;
+    displayContents(contents);
+    saveContents();
+  };
+  reader.readAsText(file);
+}
+
+function displayContents(contents) {
+  var element = document.getElementById('file-content');
+  element.textContent = contents;
+}
+
+function saveContents() {
+	var element = document.getElementById('file-content');
+	element.textContent = konfiguration
+}
+
+document.getElementById('file-input')
+  .addEventListener('change', readSingleFile, false);
+  
+  </script>
+
+</form>
