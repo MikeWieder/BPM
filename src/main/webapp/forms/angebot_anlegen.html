@@ -6,14 +6,26 @@
 <div class="form-group">
 <strong><label for="kundennummer">Kundennummer</label></strong>
 <label for="kundennummer">&nbsp;</label><strong>&nbsp;&nbsp;</strong>
-<input class="form-control"
+<input required = "true"
+	class="form-control"
 	cam-variable-type="String"
     cam-variable-name="kundennummer"
     name="kundennummer" />
 </div>
 
+<div class="form-group">
+<strong><label for="kundenmail">Kunden-EMail</label></strong>
+<label for="kundenmail">&nbsp;</label><strong>&nbsp;&nbsp;</strong>
+<input required = "true"
+	class="form-control"
+	cam-variable-type="String"
+    cam-variable-name="kundenmail"
+    name="kundenmail" />
+</div>
+
 <div class="form-group"><label for="preis"><strong>Preis</strong>&nbsp;<strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</strong></label>
-<input class="form-control" 
+<input required="true"
+	class="form-control" 
 	cam-variable-type="Double"
     cam-variable-name="preis"
     name ="preis" />
