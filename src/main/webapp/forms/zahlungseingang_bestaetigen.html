@@ -1,0 +1,33 @@
+<form role="form">
+
+<table style="height: 42px;" width="375">
+<tbody>
+<tr>
+<td style="width: 179px;"><strong><label for="kundennummer">Kundennummer:</label></strong></td>
+<td style="width: 180px;"><input cam-variable-name="kundennummer"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<tr>
+<td style="width: 179px;"><label for="preis"><strong>Preis:</strong></label></td>
+<td style="width: 180px;">
+	<input cam-variable-name="preis"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<td style="width: 179px;"><label for="zahlungsart"><strong>Zahlungsart:</strong></label></td>
+<td style="width: 180px;">
+	<input cam-variable-name="zahlungsart"
+		readonly="true">&nbsp;
+</td>
+</tbody>
+</table>
+
+<h2>Ueberpruefen Sie bitte den vollstaendigen Zahlungseingang zu den oben genannten Konditionen des Kunden </h2>
+
+<input required="true"
+	   type="checkbox"
+       cam-variable-name="zustimmung"
+       cam-variable-type="Boolean" />
+
+</form>
