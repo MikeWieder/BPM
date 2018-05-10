@@ -2,8 +2,8 @@
 
 <h1 class="form-group">Best&auml;tigtes Angebot inklusive Zahlungsart</h1>
 
-<table style="height: 42px;" width="375">
-<tbody>
+<table style="height: 42px;" width="375" >
+<tbody id="table1">
 <tr>
 <td style="width: 179px;"><strong><label for="kundennummer">Kundennummer:</label></strong></td>
 <td style="width: 180px;"><input cam-variable-name="kundennummer"
@@ -27,7 +27,36 @@
 <tr>
 <td style="width: 179px;"><label for="zahlungsart"><strong>Zahlungsart:</strong></label></td>
 <td id = "td_field_zahlungsart" style="width: 180px;">
-	<input {{ zahlungsArt }} readonly="true">&nbsp;
+	<input cam-variable-name="zahlungsart"
+		readonly="true">
+</td>
+</tr>
+<tr>
+<td style="width: 179px;"><label id="alabel" for="anzahlungssumme"><strong>Anzahlungssumme:</strong></label></td>
+<td style="width: 180px;">
+	<input id="anzahlungssumme" cam-variable-name="anzahlungssumme"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<tr>
+<td style="width: 179px;"><label id="flabel" for="finanzierungssumme"><strong>Finanzierungssumme:</strong></label></td>
+<td style="width: 180px;">
+	<input id="finanzierungssumme" cam-variable-name="finanzierungssumme"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<tr>
+<td style="width: 179px;"><label id="zlabel" for="zinssatz"><strong>Zinssatz:</strong></label></td>
+<td style="width: 180px;">
+	<input id="zinssatz" cam-variable-name="zinssatz"
+		readonly="true">&nbsp;
+</td>
+</tr>
+<tr>
+<td style="width: 179px;"><label id="llabel" for="laufzeit"><strong>Laufzeit:</strong></label></td>
+<td style="width: 180px;">
+	<input id="laufzeit" cam-variable-name="laufzeit"
+		readonly="true">&nbsp;
 </td>
 </tr>
 </tbody>
@@ -35,6 +64,71 @@
 
 
 <script cam-script type="text/form-script">
+var variableManager = camForm.variableManager;
+
+    camForm.on('variables-fetched', function() {
+      // this callback is executed *after* the variables have been fetched from the server
+      var zahlungsart = variableManager.variableValue('zahlungsart');      
+      
+      
+if(zahlungsart === "Finanzierung") {
+
+
+
+
+/*var t1 = document.getElementById("table1");
+var d = document.createElement("input");
+variableManager.fetchVariable("finanzierungssumme");
+d.innerHtml = variableManager.variableValue("finanzierungssumme");
+t1.appendChild(labelFinSum);
+t1.appendChild(d);
+var a = document.createElement("input");
+variableManager.fetchVariable("anzahlungssumme");
+d.innerHtml = variableManager.variableValue("anzahlungssumme");
+t1.appendChild(labelAnzSum);
+t1.appendChild(a);
+var b = document.createElement("input");
+variableManager.fetchVariable("zinssatz");
+d.innerHtml = variableManager.variableValue("zinssatz");
+t1.appendChild(labelZinssatz);
+t1.appendChild(b);
+var c = document.createElement("input");
+variableManager.fetchVariable("laufzeit");
+d.innerHtml = variableManager.variableValue("laufzeit");
+t1.appendChild(labelLaufzeit);
+t1.appendChild(c); */
+
+
+
+
+} else {
+
+document.getElementById("anzahlungssumme").style.visibility = "hidden";
+document.getElementById("finanzierungssumme").style.visibility = "hidden";
+document.getElementById("laufzeit").style.visibility = "hidden";
+document.getElementById("zinssatz").style.visibility = "hidden";
+
+document.getElementById("alabel").style.visibility = "hidden";
+document.getElementById("flabel").style.visibility = "hidden";
+document.getElementById("zlabel").style.visibility = "hidden";
+document.getElementById("llabel").style.visibility = "hidden";
+}
+    });
+
+
+/*var labelFinSum = document.createElement("label");
+labelFinSum.for="finanzierungssumme";
+labelFinSum.innerHtml = "Finanzierungssumme:";
+var labelAnzSum = document.createElement("label");
+labelAnzSum.for = "anzahlungssumme";
+labelAnzSum.innerHtml = "Anzahlungssumme:";
+var labelZinssatz = document.createElement("label");
+labelZinssatz.for = "zinssatz";
+labelZinssatz.innerHtml = "Zinssatz:";
+var labelLaufzeit = document.createElement("label");
+labelLaufzeit.for = "laufzeit";
+labelLaufzeit.innerHtml = "Laufzeit:";*/
+
 
 
 

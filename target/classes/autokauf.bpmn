@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.13.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.12.0">
   <bpmn:collaboration id="Collaboration_11p1k3p">
     <bpmn:participant id="Participant_16g2fas" name="Käufer" processRef="Process_1" />
     <bpmn:participant id="Participant_01dar3m" name="Process Engine&#10;" processRef="Autokauf" />
@@ -207,21 +207,21 @@
     <bpmn:sequenceFlow id="SequenceFlow_1xle26r" sourceRef="Task_0wowfqk" targetRef="Task_14tv2o7" />
     <bpmn:sequenceFlow id="SequenceFlow_1wdh1vv" sourceRef="Task_1nb7djt" targetRef="Task_0wowfqk" />
     <bpmn:sequenceFlow id="SequenceFlow_0iagek2" name="Barzahlung" sourceRef="ExclusiveGateway_1klgz1x" targetRef="Task_1nb7djt">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${zahlungsart =="barzahlung"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${zahlungsart =="Barzahlung"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1lx84g2" sourceRef="Task_0zd1nh0" targetRef="ExclusiveGateway_1klgz1x" />
     <bpmn:sequenceFlow id="SequenceFlow_1pb83la" name="Passt" sourceRef="ExclusiveGateway_1jkzgkf" targetRef="Task_1nb7djt">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${fin_abstimm_ergebnis=="bestaetigt"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${fin_abstimm_ergebnis=="bestaetigt"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_0i0v0zc" sourceRef="Task_13xk83x" targetRef="Task_0gao0uz" />
     <bpmn:sequenceFlow id="SequenceFlow_0956gov" name="Angebot löschen" sourceRef="ExclusiveGateway_1a3b9sc" targetRef="EndEvent_0s52see">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${abstimm_ergebnis=="abgelehnt"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${abstimm_ergebnis=="abgelehnt"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_022uuc0" name="Passt nicht&#10;" sourceRef="ExclusiveGateway_1jkzgkf" targetRef="EndEvent_0s52see">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${fin_abstimm_ergebnis=="abgelehnt"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${fin_abstimm_ergebnis=="abgelehnt"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1k8tpbt" name="Angebot bestätigen" sourceRef="ExclusiveGateway_1a3b9sc" targetRef="Task_0zd1nh0">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${abstimm_ergebnis=="bestaetigt"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${abstimm_ergebnis=="bestaetigt"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1w0z0xo" sourceRef="Task_1t5d1xj" targetRef="Task_1fw7117" />
     <bpmn:sequenceFlow id="SequenceFlow_06velo9" sourceRef="StartEvent_12p3zis" targetRef="Task_1t5d1xj" />
@@ -269,7 +269,7 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_16jof8e" sourceRef="Task_1fw7117" targetRef="ExclusiveGateway_1a3b9sc" />
     <bpmn:sequenceFlow id="SequenceFlow_0yto6qa" name="Finanzierung" sourceRef="ExclusiveGateway_1klgz1x" targetRef="Task_13xk83x">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${zahlungsart =="finanzierung"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${zahlungsart =="Finanzierung"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_0t74m84" sourceRef="Task_0gao0uz" targetRef="ExclusiveGateway_1jkzgkf" />
     <bpmn:dataObjectReference id="DataObjectReference_0ps5s7t" name="finales&#10;Angebot&#10;" dataObjectRef="DataObject_0lzvr55" />
@@ -279,11 +279,11 @@
       <bpmn:outgoing>SequenceFlow_1pb83la</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_022uuc0</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:userTask id="Task_0gao0uz" name="Finanzierung abstimmen" camunda:formKey="embedded:app:forms/fin_angebot_abstimmen.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_0gao0uz" name="Finanzierung abstimmen" camunda:formKey="embedded:app:forms/finanzierung_abstimmen.html" camunda:assignee="demo">
       <bpmn:incoming>SequenceFlow_0i0v0zc</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0t74m84</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_13xk83x" name="Finanzierungs-angebot anlegen&#10;" camunda:formKey="embedded:app:forms/fin_angebot_anlegen.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_13xk83x" name="Finanzierungs-angebot anlegen&#10;" camunda:formKey="embedded:app:forms/finanzierungsangebot_anlegen.html" camunda:assignee="demo">
       <bpmn:incoming>SequenceFlow_0yto6qa</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0i0v0zc</bpmn:outgoing>
     </bpmn:userTask>

@@ -6,12 +6,14 @@ import java.util.logging.Logger;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.SimpleEmail;
 import org.camunda.bpm.engine.IdentityService;
+import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.DelegateTask;
+import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.engine.delegate.TaskListener;
 import org.camunda.bpm.engine.identity.User;
 import org.camunda.bpm.engine.impl.context.Context;
 
-public class BenachrichtigungFahrzeugBestellt implements TaskListener {
+public class BenachrichtigungFahrzeugBestellt implements JavaDelegate {
 
   // TODO: Set Mail Server Properties
   private static final String HOST = "mail.opentrash.com";
@@ -20,22 +22,22 @@ public class BenachrichtigungFahrzeugBestellt implements TaskListener {
 
   private final static Logger LOGGER = Logger.getLogger(BenachrichtigungKaufvertrag.class.getName());
 
-  public void notify(DelegateTask delegateTask) {
+  public void execute(DelegateExecution execution) {
 
-    String assignee = delegateTask.getAssignee();
-    String taskId = delegateTask.getId();
+    String taskId = execution.getId();
+    String assignee = "Demo";
 
     if (assignee != null) {
     
       // Get User Profile from User Management
       IdentityService identityService = Context.getProcessEngineConfiguration().getIdentityService();
-      User user = identityService.createUserQuery().userId(assignee).singleResult();
+      User user = identityService.createUserQuery().userLastName(assignee).singleResult();
 
       if (user != null) {
       
         //Get Email Address from User Profile
         String recipient = user.getEmail();
-        String custRecipient = (String)delegateTask.getVariable("kundenmail");
+        String custRecipient = (String)execution.getVariable("kundenmail");
       
         if (recipient != null && !recipient.isEmpty()) {
 
