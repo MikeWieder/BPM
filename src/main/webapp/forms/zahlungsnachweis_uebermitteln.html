@@ -15,15 +15,29 @@
 		readonly="true">&nbsp;
 </td>
 </tr>
+<tr>
 <td style="width: 179px;"><label for="zahlungsart"><strong>Zahlungsart:</strong></label></td>
 <td style="width: 180px;">
 	<input cam-variable-name="zahlungsart"
 		readonly="true">&nbsp;
 </td>
+</tr>
+<td style="width: 179px;"><label for="kaufvertrag"><strong>Kaufvertrag:</strong></label></td>
+<td style="width: 180px;">
+	<a cam-file-download="kaufvertrag"></a>
+</td>
 </tbody>
 </table>
 
-<h2>Falls Sie die Zahlung zu den oben genannten Konditionen durchgefuehrt haben klicken Sie bitte auf die Checkbox und Bestaetigen Sie Ihre Zahlung </h2>
+<p>Falls Sie die Zahlung zu den oben genannten Konditionen durchgefuehrt haben klicken Sie bitte auf die Checkbox und Bestaetigen Sie Ihre Zahlung 
+Des Weiteren laden Sie bitte ihr eingescanntes Ueberweisungsformular hoch. </p>
+
+<input  type="file"
+       cam-variable-name="zahlungsnachweis"
+       cam-variable-type="File"
+       cam-max-filesize="10000000" />
+
+<div class="form-group">&nbsp;</div>
 
 <input required="true"
 	   type="checkbox"

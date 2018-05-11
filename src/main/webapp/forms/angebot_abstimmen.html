@@ -8,7 +8,7 @@
 <tbody>
 <tr>
 <td style="width: 179px;"><strong><label for="kundennummer">Kundennummer:</label></strong></td>
-<td style="width: 180px;"><input cam-variable-name="kundennummer"
+<td style="width: 180px;"><input cam-variable-name="kundennummer" readonly="true"
 		>&nbsp;
 </td>
 </tr>
@@ -21,8 +21,7 @@
 </tr>
 <td style="width: 179px;"><label for="konfiguration"><strong>Fahrzeugkonfiguration:</strong></label></td>
 <td style="width: 180px;">
-	<input cam-variable-name="konfiguration"
-		>&nbsp;
+	<a cam-file-download="konfiguration"></a>
 </td>
 </tbody>
 </table>

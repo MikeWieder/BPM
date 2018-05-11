@@ -31,49 +31,13 @@
     name ="preis" />
 </div>
 <div class="form-group">&nbsp;</div>
-<div class="form-group">&nbsp;</div>
 
 <div class="form-group"><label for="konfiguration">Fahrzeugkonfiguration</label> 
-<input id="file-input" type="file" required="true"/>
-<h3>Fahrzeugkonfiguration:</h3>
-<pre id="file-content"></pre>
-</div>
 
+<input type="file"
+       cam-variable-name="konfiguration"
+       cam-variable-type="File"
+       cam-max-filesize="10000000" />
 
-
-<script cam-script type="text/form-script">
-  
-  function readSingleFile(e) {
-  var file = e.target.files[0];
-  if (!file) {
-    return;
-  }
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    var contents = e.target.result;
-    displayContents(contents);
-    saveContents();
-  };
-  reader.readAsText(file);
-}
-
-function displayContents(contents) {
-  var element = document.getElementById('file-content');
-  element.textContent = contents;
-  
-  var variableManager = camForm.variableManager;
-  variableManager.createVariable({
-        name: 'konfiguration',
-        type: 'String',
-        value: contents,
-        isDirty: true
-      });
-  
-}
-
-document.getElementById('file-input')
-  .addEventListener('change', readSingleFile, false);
-  
-  </script>
 
 </form>

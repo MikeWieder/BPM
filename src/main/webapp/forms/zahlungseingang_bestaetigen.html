@@ -15,15 +15,35 @@
 		readonly="true">&nbsp;
 </td>
 </tr>
+<tr>
 <td style="width: 179px;"><label for="zahlungsart"><strong>Zahlungsart:</strong></label></td>
 <td style="width: 180px;">
 	<input cam-variable-name="zahlungsart"
 		readonly="true">&nbsp;
 </td>
+</tr>
+<tr>
+<td style="width: 179px;"><label for="kaufvertrag"><strong>Kaufvertrag:</strong></label></td>
+<td style="width: 180px;">
+	<a cam-file-download="kaufvertrag"></a>
+</td>
+</tr>
+<td style="width: 179px;"><label for="bestellung"><strong>Bestellung:</strong></label></td>
+<td style="width: 180px;">
+	<a cam-file-download="bestellung"></a>
+</td>
+
 </tbody>
 </table>
 
-<h2>Ueberpruefen Sie bitte den vollstaendigen Zahlungseingang zu den oben genannten Konditionen des Kunden </h2>
+<p>Ueberpruefen Sie bitte den vollstaendigen Zahlungseingang zu den oben genannten Konditionen des Kunden </p>
+<p>Hiermit wird die Bestellung automatisch an den Hersteller uebermittelt </p>
+
+<input type="hidden" cam-variable-name="zahlungsnachweis"/>
+
+<img src="{{ camForm.variableManager.variable('zahlungsnachweis').contentUrl }}"></img>
+
+<div class="form-group">&nbsp;</div>
 
 <input required="true"
 	   type="checkbox"

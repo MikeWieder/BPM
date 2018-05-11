@@ -20,8 +20,7 @@
 </tr>
 <td style="width: 179px;"><label for="konfiguration"><strong>Fahrzeugkonfiguration:</strong></label></td>
 <td style="width: 180px;">
-	<input cam-variable-name="konfiguration"
-		readonly="true">&nbsp;
+	<a cam-file-download="konfiguration"></a>
 </td>
 </tbody>
 </table>
@@ -31,7 +30,7 @@
 <label for="finanzierungssumme">&nbsp;</label><strong>&nbsp;&nbsp;</strong>
 <input required = "true"
 	class="form-control"
-	cam-variable-type="String"
+	cam-variable-type="Double"
     cam-variable-name="finanzierungssumme"
     name="finanzierungssumme" />
 </div>
@@ -41,7 +40,7 @@
 <label for="anzahlungssumme">&nbsp;</label><strong>&nbsp;&nbsp;</strong>
 <input required = "true"
 	class="form-control"
-	cam-variable-type="String"
+	cam-variable-type="Double"
     cam-variable-name="anzahlungssumme"
     name="anzahlungssumme" />
 </div>

@@ -1,5 +1,6 @@
 package autokauf;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,11 +14,16 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.camunda.bpm.BpmPlatform;
 import org.camunda.bpm.engine.IdentityService;
+import org.camunda.bpm.engine.ProcessEngine;
+import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.delegate.DelegateTask;
 import org.camunda.bpm.engine.delegate.TaskListener;
 import org.camunda.bpm.engine.identity.User;
 import org.camunda.bpm.engine.impl.context.Context;
+import org.camunda.bpm.engine.variable.Variables;
+import org.camunda.bpm.engine.variable.value.FileValue;
 
 public class BenachrichtigungBestellung implements TaskListener {
 
@@ -48,12 +54,12 @@ public class BenachrichtigungBestellung implements TaskListener {
         if (recipient != null && !recipient.isEmpty()) {
         	
         	StringBuilder sb = new StringBuilder();
+        	ProcessEngine processEngine = BpmPlatform.getDefaultProcessEngine();
+        	RuntimeService runtimeService = processEngine.getRuntimeService();
         	
         	String filename = "Bestellung"+processId;
-        	sb.append((String)delegateTask.getVariable("kundennummer"));
-        	sb.append("----------------------------------------------------");
-        	sb.append((String)delegateTask.getVariable("kundenmail"));
-        	sb.append("----------------------------------------------------");
+        	sb.append((String)delegateTask.getVariable("kundennummer, "));
+        	sb.append((String)delegateTask.getVariable("kundenmail, "));
         	sb.append((delegateTask.getVariable("preis")).toString());
         	String message = sb.toString();
         	
@@ -77,14 +83,18 @@ public class BenachrichtigungBestellung implements TaskListener {
 								e.printStackTrace();
 							}
         		            
-        		            doc.save(filename);
+        		            doc.save(filename+".pdf");
+        		            FileValue bestellungFile = Variables.fileValue(filename+".pdf").
+        		            		file(new File(filename+".pdf")).mimeType("text/plain").
+        		            		encoding("UTF-8").create();
+        		            runtimeService.setVariable(delegateTask.getProcessInstanceId(),"bestellung",bestellungFile);
         		        } catch (IOException e) {
 							e.printStackTrace();
 						}
         	
 
           EmailAttachment attachment = new EmailAttachment();
-          attachment.setPath(filename);
+          attachment.setPath(filename+".pdf");
           attachment.setDisposition(EmailAttachment.ATTACHMENT);
           attachment.setDescription("PDF der Bestellung");
           attachment.setName(filename+".pdf");
@@ -95,8 +105,8 @@ public class BenachrichtigungBestellung implements TaskListener {
 
           try {
             email.setFrom(USER);
-            email.setSubject("Task assigned: " + delegateTask.getName());
-            email.setMsg("Please complete: http://localhost:8080/camunda/app/tasklist/default/#/task/" + taskId);
+            email.setSubject("Bestellung wurde generiert");
+            email.setMsg("Bitte überweisen Sie den geforderten Betrag und uebermitteln einen Nachweis unter: http://localhost:8080/camunda/app/tasklist/default/#/task/" + taskId);
 
             email.addTo(recipient);
             
