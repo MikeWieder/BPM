@@ -44,8 +44,8 @@ public class BenachrichtigungBestaetigung implements TaskListener {
 
           try {
             email.setFrom(USER);
-            email.setSubject("Task assigned: " + delegateTask.getName());
-            email.setMsg("Please complete: http://localhost:8080/camunda/app/tasklist/default/#/task/" + taskId);
+            email.setSubject("Kunde " + delegateTask.getVariable("kundennummer") + " hat den Kaufvertrag bestätigt");
+            email.setMsg("Bitte Bestellung generieren unter: http://localhost:8080/camunda/app/tasklist/default/#/task/" + taskId);
 
             email.addTo(recipient);
 

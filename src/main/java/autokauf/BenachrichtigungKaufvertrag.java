@@ -54,15 +54,15 @@ public class BenachrichtigungKaufvertrag implements TaskListener {
       
         if (recipient != null && !recipient.isEmpty()) {
         	
-StringBuilder sb = new StringBuilder();
-ProcessEngine processEngine = BpmPlatform.getDefaultProcessEngine();
-RuntimeService runtimeService = processEngine.getRuntimeService();
+        	StringBuilder sb = new StringBuilder();
+        	ProcessEngine processEngine = BpmPlatform.getDefaultProcessEngine();
+        	RuntimeService runtimeService = processEngine.getRuntimeService();
         	
 			String knummer = (String) delegateTask.getVariable("kundennummer");
         	String filename = "Kaufvertrag"+knummer;
-        	sb.append((String)delegateTask.getVariable("kundennummer, "));
+        	sb.append((String)delegateTask.getVariable("kundennummer"));
         	
-        	sb.append((String)delegateTask.getVariable("kundenmail, "));
+        	sb.append((String)delegateTask.getVariable("kundenmail"));
         	sb.append((delegateTask.getVariable("preis")).toString());
         	String message = sb.toString();
         	

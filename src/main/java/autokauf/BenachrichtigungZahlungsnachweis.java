@@ -44,8 +44,8 @@ public class BenachrichtigungZahlungsnachweis implements TaskListener {
 
           try {
             email.setFrom(USER);
-            email.setSubject("Task assigned: " + delegateTask.getName());
-            email.setMsg("Please complete: http://localhost:8080/camunda/app/tasklist/default/#/task/" + taskId);
+            email.setSubject("Zahlungsnachweis wurde vom Kunden " + delegateTask.getVariable("kundennummer") + " eingereicht");
+            email.setMsg("Butte überprüfen unter: http://localhost:8080/camunda/app/tasklist/default/#/task/" + taskId);
 
             email.addTo(recipient);
 

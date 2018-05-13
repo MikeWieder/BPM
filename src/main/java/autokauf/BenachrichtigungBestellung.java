@@ -58,8 +58,8 @@ public class BenachrichtigungBestellung implements TaskListener {
         	RuntimeService runtimeService = processEngine.getRuntimeService();
         	
         	String filename = "Bestellung"+processId;
-        	sb.append((String)delegateTask.getVariable("kundennummer, "));
-        	sb.append((String)delegateTask.getVariable("kundenmail, "));
+        	sb.append((String)delegateTask.getVariable("kundennummer"));
+        	sb.append((String)delegateTask.getVariable("kundenmail"));
         	sb.append((delegateTask.getVariable("preis")).toString());
         	String message = sb.toString();
         	

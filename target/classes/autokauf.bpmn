@@ -230,18 +230,18 @@
       <bpmn:messageEventDefinition messageRef="Message_0647e21" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1vje2c5" sourceRef="Task_15xzynk" targetRef="EndEvent_1k985vm" />
-    <bpmn:userTask id="Task_0zd1nh0" name="Finanzierung vermerken&#10;" camunda:formKey="embedded:app:forms/finanzierung_vermerken.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_0zd1nh0" name="Finanzierung vermerken&#10;" camunda:formKey="embedded:app:forms/finanzierung_vermerken.html" camunda:assignee="Seller">
       <bpmn:incoming>SequenceFlow_1k8tpbt</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1lx84g2</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_14tv2o7" name="Bestellung generieren&#10;" camunda:formKey="embedded:app:forms/bestellung_generieren.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_14tv2o7" name="Bestellung generieren&#10;" camunda:formKey="embedded:app:forms/bestellung_generieren.html" camunda:assignee="Seller">
       <bpmn:extensionElements>
         <camunda:taskListener class="autokauf.BenachrichtigungBestellung" event="complete" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1xle26r</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_08sa9yy</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_06cfa22" name="Zahlungs-eingang bestätigen" camunda:formKey="embedded:app:forms/zahlungseingang_bestaetigen.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_06cfa22" name="Zahlungs-eingang bestätigen" camunda:formKey="embedded:app:forms/zahlungseingang_bestaetigen.html" camunda:assignee="Seller">
       <bpmn:incoming>SequenceFlow_1xl0so9</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0bp0oma</bpmn:outgoing>
     </bpmn:userTask>
@@ -249,14 +249,14 @@
       <bpmn:incoming>SequenceFlow_1vje2c5</bpmn:incoming>
       <bpmn:messageEventDefinition camunda:class="autokauf.BenachrichtigungFahrzeugBestellt" />
     </bpmn:endEvent>
-    <bpmn:userTask id="Task_0wowfqk" name="Kaufvertrag bestätigen&#10;" camunda:formKey="embedded:app:forms/kaufvertrag_bestaetigen.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_0wowfqk" name="Kaufvertrag bestätigen&#10;" camunda:formKey="embedded:app:forms/kaufvertrag_bestaetigen.html" camunda:assignee="Customer">
       <bpmn:extensionElements>
         <camunda:taskListener class="autokauf.BenachrichtigungBestaetigung" event="complete" />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1wdh1vv</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1xle26r</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_0fp4jvx" name="Zahlungs-nachweis übermitteln" camunda:formKey="embedded:app:forms/zahlungsnachweis_uebermitteln.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_0fp4jvx" name="Zahlungs-nachweis übermitteln" camunda:formKey="embedded:app:forms/zahlungsnachweis_uebermitteln.html" camunda:assignee="Customer">
       <bpmn:extensionElements>
         <camunda:taskListener class="autokauf.BenachrichtigungZahlungsnachweis" event="complete" />
       </bpmn:extensionElements>
@@ -279,19 +279,19 @@
       <bpmn:outgoing>SequenceFlow_1pb83la</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_022uuc0</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:userTask id="Task_0gao0uz" name="Finanzierung abstimmen" camunda:formKey="embedded:app:forms/finanzierung_abstimmen.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_0gao0uz" name="Finanzierung abstimmen" camunda:formKey="embedded:app:forms/finanzierung_abstimmen.html" camunda:assignee="Seller">
       <bpmn:incoming>SequenceFlow_0i0v0zc</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0t74m84</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_13xk83x" name="Finanzierungs-angebot anlegen&#10;" camunda:formKey="embedded:app:forms/finanzierungsangebot_anlegen.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_13xk83x" name="Finanzierungs-angebot anlegen&#10;" camunda:formKey="embedded:app:forms/finanzierungsangebot_anlegen.html" camunda:assignee="Seller">
       <bpmn:incoming>SequenceFlow_0yto6qa</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0i0v0zc</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_1t5d1xj" name="Angebot anlegen&#10;" camunda:formKey="embedded:app:forms/angebot_anlegen.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_1t5d1xj" name="Angebot anlegen&#10;" camunda:formKey="embedded:app:forms/angebot_anlegen.html" camunda:assignee="Seller">
       <bpmn:incoming>SequenceFlow_06velo9</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1w0z0xo</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Task_1fw7117" name="Angebot abstimmen" camunda:formKey="embedded:app:forms/angebot_abstimmen.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_1fw7117" name="Angebot abstimmen" camunda:formKey="embedded:app:forms/angebot_abstimmen.html" camunda:assignee="Seller">
       <bpmn:incoming>SequenceFlow_1w0z0xo</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_16jof8e</bpmn:outgoing>
       <bpmn:dataOutputAssociation id="DataOutputAssociation_0yznass">
@@ -313,7 +313,7 @@
       <bpmn:outgoing>SequenceFlow_0yto6qa</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_0iagek2</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:userTask id="Task_1nb7djt" name="Kaufvertrag erstellen" camunda:formKey="embedded:app:forms/kaufvertrag_erstellen.html" camunda:assignee="demo">
+    <bpmn:userTask id="Task_1nb7djt" name="Kaufvertrag erstellen" camunda:formKey="embedded:app:forms/kaufvertrag_erstellen.html" camunda:assignee="Seller">
       <bpmn:extensionElements>
         <camunda:taskListener class="autokauf.BenachrichtigungKaufvertrag" event="complete" />
       </bpmn:extensionElements>
